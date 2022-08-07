@@ -1,0 +1,69 @@
+
+@bg-color:#7bd4a8;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font: bold 20px "Courier";
+}
+#main{
+  display: flex;
+  //主轴上的方向 纵向排列
+  flex-flow:column ;
+  //侧轴的对齐方式
+  align-items: center;
+  //主轴的对齐方式
+  justify-content: space-around;
+  width: 360px; 
+  height: 420px;
+  background-color: @bg-color;
+  margin: 100px auto;
+  border: 10px solid black;
+  border-radius: 40px;
+  #stage{
+    position: relative;
+    width: 304px;
+    height: 304px;
+    border: 2px solid black;
+    #snake{
+      //？？？？？？？？ &> ????
+      &>div{
+        width: 10px;
+        height: 10px;
+        background-color: #000;
+        border: 1px solid @bg-color;
+        position: absolute;
+        left: 20px;
+        top:20px
+      }
+    }
+    #food{
+      width: 10px;
+      height: 10px;
+      // 弹性盒子布局
+      display: flex;
+      //设置横轴为主轴，wrap自动换行
+      flex-flow: row wrap;
+      // 设置主轴和侧轴的空白空间分配到元素之间
+      justify-content: space-between;
+      align-content: space-between;
+      position: absolute;
+     &>div{
+      width: 4px;
+      height: 4px;
+      background-color: black;
+      //旋转45度
+      transform: rotate(45deg);
+     }
+    }
+  }
+  #score-panel{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
